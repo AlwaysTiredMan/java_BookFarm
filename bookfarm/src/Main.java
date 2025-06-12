@@ -7,7 +7,7 @@ public class Main {
             String id, pw;
         }
         class Book {
-            String title, author;
+            String title, author, sellerId;
             int price;
 
         }
@@ -63,9 +63,22 @@ public class Main {
                     b.author = sc.nextLine();
                     System.out.print("가격: ");
                     b.price = sc.nextInt();
+                    sc.nextLine();
+                    b.sellerId = currentUser.id;
+                    books.add(b);
+                    System.out.println("교재 등록 완료!");
+                } else if (sel == 2) {
+                    System.out.println("\n=== 교재 목록 ===");
+                    for (int i = 0; i < books.size(); i++) {
+                        Book b = books.get(i);
+                        System.out.println("[" + (i+1) + "] " + b.title + " / " + b.author + " / " + b.price + "원 / 판매자: " + b.sellerId);
+                    }
+                } else if (sel == 3) {
+                    currentUser = null;
                 }
             }
         }
     }
 }
+
 
